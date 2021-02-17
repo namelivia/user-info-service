@@ -1,0 +1,2 @@
+#!/bin/bash
+docker exec user-info-service pipenv run pytest

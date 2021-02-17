@@ -1,0 +1,5 @@
+#!/bin/bash
+TESTING=True \
+TEST_DATABASE_URL=sqlite:///./test.db \
+pipenv run pytest --cov-report=xml --cov=app
+pipenv run codecov --commit=$1 -t $2

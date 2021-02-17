@@ -1,0 +1,37 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest = "*"
+mock = "*"
+pytest-cov = "*"
+pudb = "*"
+codecov = "*"
+pre-commit = "*"
+black = "*"
+
+[packages]
+fastapi = "*"
+uvicorn = "*"
+python-multipart = "*"
+sqlalchemy = "*"
+psycopg2 = "*"
+requests = "*"
+alembic = "*"
+sqlalchemy-utils = "*"
+gunicorn = "*"
+uvloop = "*"
+httptools = "*"
+httpx = "*"
+pyjwt = "*"
+cryptography = "*"
+pytest-freezegun = "*"
+fastapi-utils = "*"
+
+[requires]
+python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true
