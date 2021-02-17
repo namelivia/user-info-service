@@ -42,11 +42,13 @@ class TestApp:
         assert response.status_code == 422
 
     def test_get_user_info(self, client, database_test_session):
-        self._insert_test_user_info(database_test_session, {"user_id": "test_user_id"})
-        response = client.get(f"/test_user_id")
+        self._insert_test_user_info(
+            database_test_session, {"user_id": "provider/test_user_id"}
+        )
+        response = client.get(f"/provider/test_user_id")
         assert response.status_code == 200
         assert response.json() == {
             "id": 1,
-            "user_id": "test_user_id",
+            "user_id": "provider/test_user_id",
             "name": "Test name",
         }

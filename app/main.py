@@ -30,9 +30,9 @@ app.add_middleware(
 )
 
 
-@app.get("/{user_id}", response_model=schemas.UserInfo)
-def get(user_id: str, db: Session = Depends(get_db)):
-    user_info = crud.get_user_info(db, user_id)
+@app.get("/{provider}/{user_id}", response_model=schemas.UserInfo)
+def get(provider: str, user_id: str, db: Session = Depends(get_db)):
+    user_info = crud.get_user_info(db, f"{provider}/{user_id}")
     return user_info
 
 
