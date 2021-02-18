@@ -19,6 +19,7 @@ services:
     environment:
       DATABASE_URL: "postgresql://user:password@database/userinfo"
       TEST_DATABASE_URL: "sqlite:///./test.db"
+      JWK_ENDPOINT: "https://authenticate.localhost.pomerium.io/.well-known/pomerium/jwks.json"
     command: [
         "pipenv",
         "run",
