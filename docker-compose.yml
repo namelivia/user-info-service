@@ -17,7 +17,7 @@ services:
     volumes:
       - ./:/app
     environment:
-      DATABASE_URL: "postgresql://user:password@database/userinfo"
+      DATABASE_URL: "postgresql://user:password@user-info-service-database/userinfo"
       TEST_DATABASE_URL: "sqlite:///./test.db"
       JWK_ENDPOINT: "https://authenticate.localhost.pomerium.io/.well-known/pomerium/jwks.json"
       TEST_USER: "True"
