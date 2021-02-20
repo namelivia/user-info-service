@@ -15,6 +15,8 @@ app = FastAPI()
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
+logger = logging.getLogger(__name__)
+
 origins = [
     "http://localhost:8080",
 ]
@@ -40,7 +42,12 @@ async def get_current_user(
 ):
     user_auth_data = jwt.JWT.get_current_user_info(x_pomerium_jwt_assertion)
     user_info = crud.get_user_info(db, user_auth_data["sub"])
+    if user_info is None:
+        logger.error("No user info available for user {user_auth_data['sub']}")
+        user_info = {}
+    else:
+        user_info = user_info.__dict__
     return {
         **user_auth_data,
-        **user_info.__dict__,
+        **user_info,
     }
