@@ -4,12 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from http import HTTPStatus
 from app.dependencies import get_db
 from sqlalchemy.orm import Session
-from .database import engine, Base
 from . import crud, schemas, jwt
 import logging
 import sys
-
-Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
