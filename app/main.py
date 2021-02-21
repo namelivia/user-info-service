@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends, Header
+from fastapi import FastAPI, Depends, Header, Path
 from typing import Optional
 from fastapi.middleware.cors import CORSMiddleware
 from http import HTTPStatus
@@ -40,7 +40,7 @@ async def get_current_user(
     user_auth_data = jwt.JWT.get_current_user_info(x_pomerium_jwt_assertion)
     user_info = crud.get_user_info(db, user_auth_data["sub"])
     if user_info is None:
-        logger.error("No user info available for user {user_auth_data['sub']}")
+        logger.error(f"No user info available for user {user_auth_data['sub']}")
         user_info = {}
     else:
         user_info = user_info.__dict__
@@ -48,3 +48,16 @@ async def get_current_user(
         **user_auth_data,
         **user_info,
     }
+
+
+@app.get("/{provider}/{user_id}")
+async def get_user(
+    provider: str = Path(None, title="The provider of the user to get"),
+    user_id: str = Path(None, title="The ID of the user to get"),
+    db: Session = Depends(get_db),
+):
+    user_info = crud.get_user_info(db, f"{provider}/{user_id}")
+    if user_info is None:
+        logger.error(f"No user info available for user {provider}/{user_id}")
+        return {}
+    return user_info.__dict__

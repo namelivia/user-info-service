@@ -42,7 +42,7 @@ class TestApp:
         assert response.status_code == 422
 
     @patch("app.jwt.JWT.get_current_user_info")
-    def test_get_user_info(
+    def test_get_current_user_info(
         self, m_get_current_user_info, client, database_test_session
     ):
         self._insert_test_user_info(
@@ -74,3 +74,15 @@ class TestApp:
             "sub": "provider/test_user_id",
         }
         m_get_current_user_info.assert_called_with("jwt_assertion")
+
+    def test_get__user_info(self, client, database_test_session):
+        self._insert_test_user_info(
+            database_test_session, {"user_id": "provider/test_user_id"}
+        )
+        response = client.get("/provider/test_user_id")
+        assert response.status_code == 200
+        assert response.json() == {
+            "id": 1,
+            "user_id": "provider/test_user_id",
+            "name": "Test name",
+        }
