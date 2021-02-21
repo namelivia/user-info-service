@@ -6,7 +6,7 @@ from jwt import PyJWKClient
 class JWT:
     @staticmethod
     def get_current_user_info(jwt_assertion: str):
-        if os.environ["TEST_USER"]:
+        if os.getenv("TEST_USER", False):
             return {
                 "aud": [],
                 "email": "testuser@localhost.com",
