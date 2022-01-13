@@ -12,10 +12,7 @@ from app.schemas import UserInfo as UserInfoSchema
 @freeze_time("2013-04-09")
 class TestApp:
     def _insert_test_user_info(self, session, user_info: dict = {}):
-        data = {
-            "user_id": "Test user ID",
-            "name": "Test name"
-        }
+        data = {"user_id": "Test user ID", "name": "Test name"}  # A
         data.update(user_info)
         db_user_info = UserInfo(**data)
         session.add(db_user_info)
@@ -28,7 +25,7 @@ class TestApp:
             json={
                 "user_id": "Some user id",
                 "name": "Some name",
-            "locale": "en",
+                "locale": "en",
             },
         )
         assert response.status_code == 201
