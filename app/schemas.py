@@ -5,6 +5,7 @@ from typing import Optional
 class UserInfoBase(BaseModel):
     user_id: str = Field(title="User id on the external provider")
     name: Optional[str] = Field(title="User name")
+    locale: Optional[str] = Field(title="User locale")
 
 
 class UserInfoCreate(UserInfoBase):

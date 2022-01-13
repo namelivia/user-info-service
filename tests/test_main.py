@@ -14,7 +14,7 @@ class TestApp:
     def _insert_test_user_info(self, session, user_info: dict = {}):
         data = {
             "user_id": "Test user ID",
-            "name": "Test name",
+            "name": "Test name"
         }
         data.update(user_info)
         db_user_info = UserInfo(**data)
@@ -28,6 +28,7 @@ class TestApp:
             json={
                 "user_id": "Some user id",
                 "name": "Some name",
+            "locale": "en",
             },
         )
         assert response.status_code == 201
@@ -35,6 +36,7 @@ class TestApp:
             "id": 1,
             "user_id": "Some user id",
             "name": "Some name",
+            "locale": "en",
         }
 
     def test_create_user_info_invalid(self, client):
@@ -65,6 +67,7 @@ class TestApp:
             "id": 1,
             "user_id": "provider/test_user_id",
             "name": "Test name",
+            "locale": "en",
             "aud": ["example"],
             "email": "user@example.com",
             "exp": 1237658,
@@ -85,4 +88,5 @@ class TestApp:
             "id": 1,
             "user_id": "provider/test_user_id",
             "name": "Test name",
+            "locale": "en",
         }
