@@ -15,7 +15,7 @@ logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 origins = [
-    "http://localhost:8080",
+    "http://localhost:3000",
 ]
 
 app.add_middleware(
