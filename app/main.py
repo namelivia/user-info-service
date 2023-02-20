@@ -44,6 +44,7 @@ async def get_current_user(
         user_info = {}
     else:
         user_info = user_info.__dict__
+    logger.info(f"User auth data is: {user_auth_data}")
     return {
         **user_auth_data,
         **user_info,
