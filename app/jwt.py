@@ -1,4 +1,5 @@
 import jwt
+import requests
 import os
 from jwt import PyJWKClient
 from jwcrypto import jwk as jwcrypto_jwk
