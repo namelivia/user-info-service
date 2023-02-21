@@ -37,7 +37,13 @@ async def get_current_user(
     db: Session = Depends(get_db),
     x_pomerium_jwt_assertion: Optional[str] = Header(None),
 ):
-    user_auth_data = jwt.JWT.get_current_user_info(x_pomerium_jwt_assertion)
+    try:
+        user_auth_data = jwt.JWT.get_current_user_info_pyjwt(x_pomerium_jwt_assertion)
+    except Exception as e:
+        logger.error(f"Error getting user info using pyjwt: {e}. Attempting jwcrypto")
+        user_auth_data = jwt.JWT.get_current_user_info_jwcrypto(
+            x_pomerium_jwt_assertion
+        )
     user_info = crud.get_user_info(db, user_auth_data["sub"])
     if user_info is None:
         logger.error(f"No user info available for user {user_auth_data['sub']}")
