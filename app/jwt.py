@@ -4,7 +4,6 @@ from jwt import PyJWKClient
 from jwcrypto import jwk as jwcrypto_jwk
 
 
-
 class JWT:
     @staticmethod
     def get_current_user_info_pyjwt(jwt_assertion: str):
