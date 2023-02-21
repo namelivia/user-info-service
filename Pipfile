@@ -29,6 +29,7 @@ pyjwt = "*"
 cryptography = "*"
 pytest-freezegun = "*"
 fastapi-utils = "*"
+jwcrypto = "*"
 
 [requires]
 python_version = "3.8"
