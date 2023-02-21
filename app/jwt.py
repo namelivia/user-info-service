@@ -1,11 +1,13 @@
 import jwt
 import os
 from jwt import PyJWKClient
+from jwcrypto import jwk as jwcrypto_jwk
+
 
 
 class JWT:
     @staticmethod
-    def get_current_user_info(jwt_assertion: str):
+    def get_current_user_info_pyjwt(jwt_assertion: str):
         if os.getenv("TEST_USER", False):
             return {
                 "aud": [],
@@ -27,3 +29,11 @@ class JWT:
                 "verify_aud": False,
             },
         )
+
+    def get_current_user_info_jwcrypto(jwt_assertion: str):
+        url = os.environ["JWK_ENDPOINT"]
+        # Get key sets from the JWK endpoint
+        jwks = jwcrypto_jwk.JWKSet().from_json(requests.get(url))
+        # Decode token
+        data = jwcrypto_jwk.JWK().deserialize(jwt_assertion, key=jwks)
+        return data
