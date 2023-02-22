@@ -3,6 +3,7 @@ import requests
 import os
 from jwt import PyJWKClient
 from jwcrypto import jwk as jwcrypto_jwk
+from jwcrypto import jwt as jwcrypto_jwt
 
 
 class JWT:
@@ -35,5 +36,5 @@ class JWT:
         # Get key sets from the JWK endpoint
         jwks = jwcrypto_jwk.JWKSet().from_json(requests.get(url).text)
         # Decode token
-        data = jwcrypto_jwk.JWK(key=jwks, jwt=jwt_assertion)
-        return data.claims
+        token = jwcrypto_jwt.JWT(jwt=jwt_assertion, key=jwks)
+        return token.claims
