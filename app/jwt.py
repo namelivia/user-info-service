@@ -33,7 +33,7 @@ class JWT:
     def get_current_user_info_jwcrypto(jwt_assertion: str):
         url = os.environ["JWK_ENDPOINT"]
         # Get key sets from the JWK endpoint
-        jwks = jwcrypto_jwk.JWKSet().from_json(requests.get(url))
+        jwks = jwcrypto_jwk.JWKSet().from_json(requests.get(url).text)
         # Decode token
-        data = jwcrypto_jwk.JWK().deserialize(jwt_assertion, key=jwks)
-        return data
+        data = jwcrypto_jwk.JWK(key=jwks, jwt=jwt_assertion)
+        return data.claims
