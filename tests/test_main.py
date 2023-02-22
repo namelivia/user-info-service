@@ -40,7 +40,7 @@ class TestApp:
         response = client.post("/new", json={"name": "Test"})
         assert response.status_code == 422
 
-    @patch("app.jwt.JWT.get_current_user_info_jwcrypto")
+    @patch("app.jwt.JWT.get_current_user_info")
     def test_get_current_user_info(
         self, m_get_current_user_info, client, database_test_session
     ):
