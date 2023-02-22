@@ -40,7 +40,7 @@ class TestApp:
         response = client.post("/new", json={"name": "Test"})
         assert response.status_code == 422
 
-    @patch("app.jwt.JWT.get_current_user_info_pyjwt")
+    @patch("app.jwt.JWT.get_current_user_info_jwcrypto")
     def test_get_current_user_info(
         self, m_get_current_user_info, client, database_test_session
     ):
@@ -48,30 +48,42 @@ class TestApp:
             database_test_session, {"user_id": "provider/test_user_id"}
         )
         m_get_current_user_info.return_value = {
-            "aud": ["example"],
-            "email": "user@example.com",
-            "exp": 1237658,
-            "iat": 1237658,
-            "iss": "test.example.com",
-            "nbf": 1237658,
-            "sub": "provider/test_user_id",
+            "aud": "some.aud",
+            "email": "some@email.com",
+            "exp": 1677084692,
+            "family_name": "Surname",
+            "given_name": "Name",
+            "groups": [],
+            "iat": 1612383135,
+            "iss": "authenticate.endpoint",
+            "jti": "218e9c05-e3d4-4132-920d-fda95686f13b",
+            "locale": "en",
+            "name": "Name Surname",
+            "picture": "https://image.url",
+            "sid": "990efd79-bdca-4ff4-8b41-270261797161",
+            "sub": "1145123213213213123781",
+            "user": "112351023941203942302",
         }
         response = client.get(
             "me", headers={"X-Pomerium-Jwt-Assertion": "jwt_assertion"}
         )
         assert response.status_code == 200
         assert response.json() == {
-            "id": 1,
-            "user_id": "provider/test_user_id",
-            "name": "Test name",
+            "aud": "some.aud",
+            "email": "some@email.com",
+            "exp": 1677084692,
+            "family_name": "Surname",
+            "given_name": "Name",
+            "groups": [],
+            "iat": 1612383135,
+            "iss": "authenticate.endpoint",
+            "jti": "218e9c05-e3d4-4132-920d-fda95686f13b",
             "locale": "en",
-            "aud": ["example"],
-            "email": "user@example.com",
-            "exp": 1237658,
-            "iat": 1237658,
-            "iss": "test.example.com",
-            "nbf": 1237658,
-            "sub": "provider/test_user_id",
+            "name": "Name Surname",
+            "picture": "https://image.url",
+            "sid": "990efd79-bdca-4ff4-8b41-270261797161",
+            "sub": "1145123213213213123781",
+            "user": "112351023941203942302",
         }
         m_get_current_user_info.assert_called_with("jwt_assertion")
 
