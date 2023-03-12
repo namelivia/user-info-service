@@ -18,11 +18,11 @@
     "default": {
         "alembic": {
             "hashes": [
-                "sha256:4d3bd32ecdbb7bbfb48a9fe9e6d6fd6a831a1b59d03e26e292210237373e7db5",
-                "sha256:6f1c2207369bf4f49f952057a33bb017fbe5c148c2a773b46906b806ea6e825f"
+                "sha256:457eafbdc0769d855c2c92cbafe6b7f319f916c80cf4ed02b8f394f38b51b89d",
+                "sha256:8b48368f6533c064b39c024e1daba15ae7f947eac84185c28c06bbe1301a5497"
             ],
             "index": "pypi",
-            "version": "==1.9.4"
+            "version": "==1.10.2"
         },
         "anyio": {
             "hashes": [
@@ -1058,7 +1058,7 @@
         },
         "coverage": {
             "extras": [
-                "toml"
+
             ],
             "hashes": [
                 "sha256:0339dc3237c0d31c3b574f19c57985fcbe494280153bbcad33f2cdf469f4ac3e",
