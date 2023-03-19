@@ -253,11 +253,11 @@
         },
         "fastapi": {
             "hashes": [
-                "sha256:08ce0bc6f381ef1b6431e84a31d26eca0b60d6e1ac575adba4af95cc5a36cb62",
-                "sha256:898d7f6616dea49e78fa00e34401f9ace238fc670aafe4e30a16a384e3a671e1"
+                "sha256:99d4fdb10e9dd9a24027ac1d0bd4b56702652056ca17a6c8721eec4ad2f14e18",
+                "sha256:daf73bbe844180200be7966f68e8ec9fd8be57079dff1bacb366db32729e6eb5"
             ],
             "index": "pypi",
-            "version": "==0.94.0"
+            "version": "==0.95.0"
         },
         "fastapi-utils": {
             "hashes": [
@@ -430,11 +430,11 @@
         },
         "importlib-metadata": {
             "hashes": [
-                "sha256:7efb448ec9a5e313a57655d35aa54cd3e01b7e1fbcf72dce1bf06119420f5bad",
-                "sha256:e354bedeb60efa6affdcc8ae121b73544a7aa74156d047311948f6d711cd378d"
+                "sha256:43ce9281e097583d758c2c708c4376371261a02c34682491a8e98352365aad20",
+                "sha256:ff80f3b5394912eb1b108fcfd444dc78b7f1f3e16b16188054bd01cb9cb86f09"
             ],
             "markers": "python_version < '3.9'",
-            "version": "==6.0.0"
+            "version": "==6.1.0"
         },
         "importlib-resources": {
             "hashes": [
@@ -1058,7 +1058,7 @@
         },
         "coverage": {
             "extras": [
-                "toml"
+
             ],
             "hashes": [
                 "sha256:006ed5582e9cbc8115d2e22d6d2144a0725db542f654d9d4fda86793832f873d",
