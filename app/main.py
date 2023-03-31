@@ -38,7 +38,7 @@ async def get_current_user(
     x_pomerium_jwt_assertion: Optional[str] = Header(None),
 ):
     user_auth_data = jwt.JWT.get_current_user_info(x_pomerium_jwt_assertion)
-    user_id = f"google/{user_auth_data['sub']}]}"
+    user_id = "google/" + user_auth_data['sub']
     user_info = crud.get_user_info(db, user_id)
     if user_info is None:
         logger.error(f"No user info available for user {user_auth_data['sub']}")
