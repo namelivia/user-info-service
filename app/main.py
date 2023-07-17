@@ -53,8 +53,8 @@ async def get_current_user(
 
 @app.get("/{provider}/{user_id}")
 async def get_user(
-    provider: str = Path(None, title="The provider of the user to get"),
-    user_id: str = Path(None, title="The ID of the user to get"),
+    provider: str = Path(title="The provider of the user to get"),
+    user_id: str = Path(title="The ID of the user to get"),
     db: Session = Depends(get_db),
 ):
     user_info = crud.get_user_info(db, f"{provider}/{user_id}")
