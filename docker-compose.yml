@@ -24,7 +24,7 @@ services:
       JWK_ENDPOINT: "https://authenticate.localhost.pomerium.io/.well-known/pomerium/jwks.json"
       TEST_USER: "True"
     command: [
-        "pipenv",
+        "poetry",
         "run",
         "uvicorn",
         "app.main:app",
