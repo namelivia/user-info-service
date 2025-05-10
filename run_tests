@@ -1,2 +1,2 @@
 #!/bin/bash
-docker exec user-info-service pipenv run pytest
+docker exec user-info-service poetry run pytest

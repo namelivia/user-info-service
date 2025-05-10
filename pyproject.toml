@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "app"
+version = "1.0.0"
+description = "User info service"
+authors = ["José Ignacio Amelivia Santiago <hello@namelivia.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "*"
+uvicorn = "*"
+python-multipart = "*"
+sqlalchemy = "*"
+psycopg2-binary = "*"
+requests = "*"
+alembic = "*"
+sqlalchemy-utils = "*"
+typing-inspect = "*"
+gunicorn = "*"
+uvloop = "*"
+httptools = "*"
+jwcrypto = "*"
+pyyaml = "~=6.0.2"
+pyjwt = { git = "https://github.com/jpadilla/pyjwt.git", rev = "master" }
+cryptography = "*"
+fastapi-utils = "*"
+httpx = "~=0.27.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+mock = "*"
+pytest-cov = "*"
+pudb = "*"
+codecov = "*"
+black = "*"
+pre-commit = "*"
+pytest-freezegun = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
