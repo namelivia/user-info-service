@@ -1,3 +1,3 @@
-# User info service [![tag](https://img.shields.io/github/tag/namelivia/user-info-service.svg)](https://github.com/namelivia/user-info-service/releases) [![Build](https://github.com/namelivia/user-info-service/workflows/Build/badge.svg)](https://github.com/namelivia/user-info-service/actions?query=workflow%3ABuild) [![codecov](https://codecov.io/gh/namelivia/user-info-service/branch/master/graph/badge.svg)](https://codecov.io/gh/namelivia/user-info-service)
+# [Moved]
 
-This is a simple user-info service
+Development has moved to Codeberg: [https://codeberg.org/namelivia/user-info-service](https://codeberg.org/namelivia/user-info-service)

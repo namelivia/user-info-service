@@ -1,5 +1,0 @@
-#!/bin/bash
-TESTING=True \
-TEST_DATABASE_URL=sqlite:///./test.db \
-poetry run pytest --cov-report=xml --cov=app
-poetry run codecov --commit=$1 -t $2

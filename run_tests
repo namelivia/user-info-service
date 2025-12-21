@@ -1,2 +1,0 @@
-#!/bin/bash
-docker exec user-info-service poetry run pytest
